@@ -3,6 +3,7 @@ package oauthdialog
 
 import (
 	"errors"
+	"log"
 	"net"
 	"net/http"
 
@@ -77,7 +78,8 @@ func (d *Dialog) Open() (code string, err error) {
 		return
 	}
 
-	url := conf.AuthCodeURL(state)
+	url := conf.AuthCodeURL(state, oauth2.AccessTypeOffline)
+	log.Println("bruh")
 	if err = open.Run(url); err != nil {
 		return
 	}

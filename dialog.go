@@ -58,7 +58,7 @@ type Dialog struct {
 // Open the dialog.
 func (d *Dialog) Open() (code string, err error) {
 	// Start local HTTP server
-	ln, err := net.Listen("tcp", "127.0.0.1:0")
+	ln, err := net.Listen("tcp", "127.0.0.1:8081")
 	if err != nil {
 		return
 	}
